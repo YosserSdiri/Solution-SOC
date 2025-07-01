@@ -1,0 +1,96 @@
+<!-- Local rules -->
+
+<!-- Modify it at your will. -->
+<!-- Copyright (C) 2015, Wazuh Inc. -->
+
+<!-- Example -->
+<group name="local,syslog,sshd,">
+
+  <!--
+  Dec 10 01:02:02 host sshd[1234]: Failed none for root from 1.1.1.1 port 1066 ssh2
+  -->
+  <rule id="100001" level="5">
+    <if_sid>5716</if_sid>
+    <srcip>1.1.1.1</srcip>
+    <description>sshd: authentication failed from IP 1.1.1.1.</description>
+    <group>authentication_failed,pci_dss_10.2.4,pci_dss_10.2.5,</group>
+  </rule>
+
+</group>
+
+<group name="syscheck,pci_dss_11.5,nist_800_53_SI.7,">
+    <!-- Rules for Linux systems -->
+    <rule id="100200" level="7">
+        <if_sid>550</if_sid>
+        <field name="file">/root</field>
+        <description>File modified in /root directory.</description>
+    </rule>
+    <rule id="100201" level="7">
+        <if_sid>554</if_sid>
+        <field name="file">/root</field>
+        <description>File added to /root directory.</description>
+    </rule>
+</group>
+
+
+<group name="virustotal,">
+
+<!-- VirusTotal detection rules -->
+
+  <rule id="100092" level="12">
+    <if_sid>657</if_sid>
+    <match>Successfully removed threat</match>
+    <description>$(parameters.program) removed threat located at $(parameters.alert.data.virustotal.source.file)</description>
+  </rule>
+
+  <rule id="100093" level="12">
+    <if_sid>657</if_sid>
+    <match>Error removing threat</match>
+    <description>Error removing threat located at $(parameters.alert.data.virustotal.source.file)</description>
+  </rule>
+</group>
+
+
+
+<group name="process_monitor,">
+  <rule id="100010" level="6">
+    <decoded_as>tasklist</decoded_as>
+    <regex type="pcre2">(?i)AnyDesk.exe</regex>
+    <description>AnyDesk.exe is running.</description>
+  </rule>
+</group>
+
+
+<group name="wazuh,">
+  <rule id="101011" level="9"> 
+    <decoded_as>json</decoded_as>
+    <options>alert_by_email</options>
+    <field name="event.module">wazuh-authd</field>
+    <field name="event.type">login_failed</field>
+    <description> echec d'authentification sur l'interface Wazuh</description>
+  </rule>
+</group>
+
+<group name="syscheck,">
+    <rule id="100257" level="7">
+        <if_sid>550</if_sid>
+        <field name="file">/home/client/.ssh/known_hosts</field>
+        <options>alert_by_email</options>
+        <description>known_hosts is modified</description>
+    </rule>
+
+</group>
+
+<group name="syscheck">
+  <rule id="100003" level="8">
+    <if_sid>553</if_sid>
+    <field name="process_name">explorer.exe$</field>
+     <field name="uname">yosser</field>
+    <match>deleted</match>
+    <description>The user "$(uname)"  deleted a monitored file with File Explorer</description>
+    <mitre>
+      <id>T1070.004</id>
+      <id>T1485</id>
+    </mitre>
+  </rule>
+</group> 
