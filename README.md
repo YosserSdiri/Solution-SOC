@@ -7,8 +7,13 @@ La solution repose sur l’intégration de plusieurs outils open source reconnus
 
 - Wazuh – SIEM pour la collecte, la centralisation et l’analyse des logs.
 
-- TheHive – Plateforme de gestion des incidents (SOAR).
+- TheHive – Plateforme de gestion des incidents.
 
 - Cortex – Moteur d’automatisation des réponses et enrichissement d’alertes.
 
 - MISP – Plateforme de partage d’indicateurs de compromission (IoCs).
+
+🧱 Architecture:
+![image](https://github.com/user-attachments/assets/a5be5e80-0a3c-4a06-84f4-058c0e4f9908)
+
+
