@@ -20,17 +20,11 @@ L'architecture de notre solution SOC managé est conçue pour assurer la surveil
 ## 🔄 Workflow opérationnel du SOC
 
 Voici le workflow de gestion des incidents dans notre architecture SOC managé :
-1)
-Détection des événements de sécurité : Les agents Wazuh déployés sur les machines des clients surveillent en continu les activités suspectes et détectent les événements de sécurité (tentatives d’intrusion, modifications anormales de fichiers, exécutions de processus suspects, etc.).
-2)
-Envoi des alertes vers Wazuh : Une fois un événement est détecté par les agents Wazuh, qui jouent le rôle de XDR (Extended Detection and Response), ceux-ci transmettent les alertes au serveur Wazuh « 192.168.10.30 » pour une corrélation et une analyse approfondie.
-3)
-Transmission des alertes à TheHive : Les alertes générées par Wazuh sont automatiquement transmises à TheHive pour une gestion centralisée des incidents.
-4)
-Création des cases (ticketing) : Les analystes de sécurité examinent les alertes reçues dans TheHive et créent des « cases » : tickets d'incident pour un suivi structuré.
-5)
-Enrichissement automatique avec Cortex : Une fois une case créée, les analystes peuvent lancer l’enrichissement de l’alerte en cliquant sur un bouton, ce qui déclenche Cortex pour interroger ses analyzers (VirusTotal et MISP), afin d’obtenir des informations complémentaires sur les fichiers, adresses IP, domaines et autres indicateurs de compromitions (IOCs).
-6)
-Investigation et clôture des incidents : L’équipe de sécurité analyse les résultats des enrichissements et prend les mesures nécessaires. Une fois le traitement terminé, l’incident est clôturé dans TheHive.
-7)
-Partage des IOCs avec MISP : Une fois l’incident traité et la case clôturée, les informations peuvent être partagées dans MISP afin d’enrichir la base de données de threat intelligence et améliorer la détection des menaces futures.
+
+1)-  Détection des événements de sécurité : Les agents Wazuh déployés sur les machines des clients surveillent en continu les activités suspectes et détectent les événements de sécurité (tentatives d’intrusion, modifications anormales de fichiers, exécutions de processus suspects, etc.).
+2)-  Envoi des alertes vers Wazuh : Une fois un événement est détecté par les agents Wazuh, qui jouent le rôle de XDR (Extended Detection and Response), ceux-ci transmettent les alertes au serveur Wazuh « 192.168.10.30 » pour une corrélation et une analyse approfondie.
+3)- Transmission des alertes à TheHive : Les alertes générées par Wazuh sont automatiquement transmises à TheHive pour une gestion centralisée des incidents.
+4)- Création des cases (ticketing) : Les analystes de sécurité examinent les alertes reçues dans TheHive et créent des « cases » : tickets d'incident pour un suivi structuré.
+5)- Enrichissement automatique avec Cortex : Une fois une case créée, les analystes peuvent lancer l’enrichissement de l’alerte en cliquant sur un bouton, ce qui déclenche Cortex pour interroger ses analyzers (VirusTotal et MISP), afin d’obtenir des informations complémentaires sur les fichiers, adresses IP, domaines et autres indicateurs de compromitions (IOCs).
+6) Investigation et clôture des incidents : L’équipe de sécurité analyse les résultats des enrichissements et prend les mesures nécessaires. Une fois le traitement terminé, l’incident est clôturé dans TheHive.
+7)- Partage des IOCs avec MISP : Une fois l’incident traité et la case clôturée, les informations peuvent être partagées dans MISP afin d’enrichir la base de données de threat intelligence et améliorer la détection des menaces futures.
