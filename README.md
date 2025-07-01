@@ -15,6 +15,26 @@ La solution repose sur l’intégration de plusieurs outils open source reconnus
 
 - MISP – Plateforme de partage d’indicateurs de compromission (IoCs).
 
+## ⚙️ Fonctionnalités principales: 
+
+La solution mise en place doit répondre aux attentes suivantes :
+
+• Surveillance en temps réel de l’environnement informatique, incluant la détection de modifications de fichiers critiques, d’activités réseau suspectes, et de comportements malveillants.
+
+• Centralisation des logs et des alertes provenant de plusieurs sources afin d’unifier l’analyse des événements de sécurité dans un endroit unique.
+
+• Détection avancée des menaces grâce à : l’intégration d’un système de détection d’intrusion réseau (NIDS), l’analyse des processus systèmes et la détection de ransomwares.
+
+• Automatisation de la réponse aux incidents, comme le blocage d’attaques ou la suppression de fichiers malveillants.
+
+• Gestion structurée des incidents avec la création et le suivi des cas de sécurité facilitant la collaboration des équipes de sécurité sur les enquêtes.
+
+• Enrichissement des alertes à l’aide de sources externes de threat intelligence.
+
+• Notification par e-mail en cas d’alerte critique garantissant une réactivité optimale.
+
+• Génération automatique des rapports de sécurité pour une meilleure visibilité sur l’état de la sécurité.
+
 ## 🧱 Architecture:
 ![image](https://github.com/user-attachments/assets/a5be5e80-0a3c-4a06-84f4-058c0e4f9908)
 
