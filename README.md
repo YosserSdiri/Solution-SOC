@@ -67,7 +67,8 @@ Voici le workflow de gestion des incidents dans notre architecture SOC managé :
 
 7)- Partage des IOCs avec MISP : Une fois l’incident traité et la case clôturée, les informations peuvent être partagées dans MISP afin d’enrichir la base de données de threat intelligence et améliorer la détection des menaces futures.
 
-
+## 🎓 Contexte du projet
+Ce projet a été réalisé dans le cadre du Projet de Fin d’Études pour l’obtention du Diplôme National d’Ingénieur en Téléinformatique.
 
 ## 👩‍💻 Réalisé par :
 ### Yosser Sdiri
