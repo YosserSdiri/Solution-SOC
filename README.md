@@ -1,5 +1,7 @@
 # 🛡️ SOC Managé – Mise en place d’une solution de cybersécurité
 
+
+
 ## 📌 Description du projet:
 
 Ce projet consiste à la mise en place d’une solution SOC (Security Operations Center) managée, permettant d'assurer la surveillance en temps réel, la détection des menaces et la réponse aux incidents de sécurité.
@@ -15,7 +17,10 @@ La solution repose sur l’intégration de plusieurs outils open source reconnus
 
 ## 🧱 Architecture:
 ![image](https://github.com/user-attachments/assets/a5be5e80-0a3c-4a06-84f4-058c0e4f9908)
+
+
 L'architecture de notre solution SOC managé est conçue pour assurer la surveillance et la sécurité des infrastructures pour deux clients distincts, en exploitant une solution centralisée basée sur plusieurs outils interconnectés. Chaque client dispose de son propre réseau, avec des machines protégées et supervisées par des agents Wazuh, Au coeur du système, nous avons déployé Wazuh en tant que SIEM, installé sur la machine « 192.168.10.30 » en tant que pile à noeud unique, à l'aide de Docker, afin de collecter, analyser et corréler les événements de sécurité en temps réel. Pour renforcer l'analyse et l'enrichissement des alertes, nous avons intégré TheHive, une plateforme de gestion des incidents de sécurité (SIRP), Cortex, un moteur d’analyse de données de sécurité et MISP, une plateforme de renseignement sur les menaces. Ces trois outils ont été installés sur la machine « 192.168.10.10 » à l'aide de Docker. MISP est également configuré en tant qu’analyseur Cortex, aux côtés de VirusTotal permettant ainsi d’enrichir les alertes en interrogeant leurs bases de données respectives pour identifier des indicateurs de compromission (IOCs).
+
 
 ## 🔄 Workflow opérationnel du SOC
 
@@ -37,7 +42,7 @@ Voici le workflow de gestion des incidents dans notre architecture SOC managé :
 (VirusTotal et MISP), afin d’obtenir des informations complémentaires sur les fichiers, adresses IP, domaines et autres indicateurs de compromitions (IOCs).
 
 
-6) Investigation et clôture des incidents : L’équipe de sécurité analyse les résultats des enrichissements et prend les mesures nécessaires. Une fois le traitement terminé, l’incident est clôturé dans TheHive.
+6)- Investigation et clôture des incidents : L’équipe de sécurité analyse les résultats des enrichissements et prend les mesures nécessaires. Une fois le traitement terminé, l’incident est clôturé dans TheHive.
 
 
 7)- Partage des IOCs avec MISP : Une fois l’incident traité et la case clôturée, les informations peuvent être partagées dans MISP afin d’enrichir la base de données de threat intelligence et améliorer la détection des menaces futures.
